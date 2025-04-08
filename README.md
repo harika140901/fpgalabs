@@ -4,9 +4,9 @@ These are a few lab exercises to get started with the Pynq Z1 FPGA board.  They 
 
 ## Exercises
 
-- Basic Verilog example and using ILA / VIO
-- Simple combinational adder with Pynq
-- Streaming multiplier with Pynq
+- [Basic Verilog example](counter/) and using ILA / VIO
+- [Simple combinational adder](adder/) with Pynq
+- [Streaming multiplier](stream_mult/) with Pynq
 - FFT 
 
 ---
