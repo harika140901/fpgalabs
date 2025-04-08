@@ -66,4 +66,24 @@ It is assumed that you already understand the basics of how memory mapping works
 - `a` has an address assigned to it - this is the address of a memory location.  Due to the fact that operating systems use *virtual memory*, we may only know the *virtual address* of this location, and we need some other way by which we can convert this to a *physical* address.  
 - Pynq is a set of libraries for Python that provide us with the ability to do so: there is a way to directly access a given memory location even though the underlying OS has virtualized it.  A nice set of Python functions is provided that abstract all this away for us.
 
-In our case, we need to do the following
+In our case, we need to do the following:
+
+- Copy the `add_pynq.bit` and `add_pynq.hwh` files into the Pynq board.  Once you connect to Pynq, you will see a directory listing where you can *upload* these files.
+- If the `add.ipynb` notebook is not already present, upload it from this directory.  Run the notebook.
+
+### Notebook contents and observations:
+
+The notebook does the following:
+
+- Run the necessary commands to `import` the required Python modules
+- Create an `Overlay` instance that takes care of programming
+- View the register map.  This is an optional step: it is just for you to correlate how the Python interacts with the hardware, with the register map that was defined in Verilog.  Basically the register map tells Python the offset addresses of the different input and output parameters so that we can directly set or read their values.
+- Create the proxy variable `adder_0` to make it easier to type the rest of the code.  Again: optional.
+- Actually set the values for the `a` and `b` inputs by writing to the appropriate register values directly.  This is where the actual interaction with hardware over the AXI lite bus happens.
+- Read back the result from the `c` output, again using AXI lite. 
+
+As you can see, the steps for communicating with the AXI bus are abstracted out so that you do not even need to declare pointers, worry about memory addresses etc.  This is probably not a good thing if you want to learn how the hardware works, so please take the time to understand what is actually happening and how the data is being sent to the hardware.
+
+Feel free to experiment by changing the values of `a` and `b`.  Also feel free to modify the underling HLS code, changing the functionality etc.
+
+Note that if you change the number or names of the inputs or outputs, then you will need to modify the `vivado_proj.tcl` file to update the block design.  This is non-trivial, so attempt this only after you are sure you understand the rest of the design process.
