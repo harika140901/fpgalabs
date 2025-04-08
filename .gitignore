@@ -1,2 +1,5 @@
-hls/vitis_hls.log
 build/
+.Xil/
+vitis_hls*.log
+vivado*.jou
+vivado*.log

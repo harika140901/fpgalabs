@@ -205,7 +205,7 @@ wait_on_run impl_1
 # then copy the .bit and .hwh file to the build directory
 # The hwh file will be present in the .gen folder, not the impl folder
 set impl_status [get_property status [get_runs impl_1]]
-if { $impl_status eq "completed" } {
+if { $impl_status eq "write_bitstream Complete!" } {
   set project_path [get_property directory [current_project]]
   set project_file [file rootname $project_path]
   set __project [current_project]
@@ -216,7 +216,7 @@ if { $impl_status eq "completed" } {
   #gather in the .prj directory
   file copy -force $hwhandoff $project_file.hwh
   file copy -force $bitstream $project_file.bit
-  puts "The .bit and .hwh files should be available now in $project_path"
+  puts "The .bit and .hwh files should be available now in $project_path.bit (and .hwh respectively)"
   puts "Copy them over to the Pynq board using scp or rsync"
 } else {
   puts "Implementation failed.  Check the logs."
