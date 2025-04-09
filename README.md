@@ -9,6 +9,10 @@ These are a few lab exercises to get started with the Pynq Z1 FPGA board.  They 
 - [Streaming multiplier](stream_mult/) with Pynq
 - FFT 
 
+## Board Setup
+
+These examples are built mostly around the [Pynq Z1 board](https://digilent.com/shop/pynq-z1-python-productivity-for-zynq-7000-arm-fpga-soc/), and it is assumed that you have followed the instructions for [board setup](https://pynq.readthedocs.io/en/latest/getting_started/pynq_z1_setup.html).  Most of the steps here can be performed without physical access to the board.  While this is a good general purpose board for learning, please note that there are probably better boards available now: in particular the Pynq Z2 already exists, as does the Pynq ZU, and there are possibly other less expensive boards that may or may not be Pynq compatible.  This tutorial should not be taken as a specific recommendation to acquire these boards specifically.
+
 ---
 
 © 2025 Nitin Chandrachoodan, IIT Madras
